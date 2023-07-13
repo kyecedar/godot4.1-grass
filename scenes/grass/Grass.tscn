@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8oti3v6h7ons"]
+
+[ext_resource type="Shader" path="res://scenes/grass/grass_process.gdshader" id="1_bu3b1"]
+[ext_resource type="Shader" path="res://scenes/grass/grass_material.gdshader" id="1_cbtxm"]
+[ext_resource type="Texture2D" uid="uid://bgb0ykvlliief" path="res://scenes/grass/noise_height_map.res" id="2_kf7co"]
+[ext_resource type="ArrayMesh" uid="uid://wkf4e2ltfgen" path="res://assets/meshes/grass_lod_far.mesh" id="5_dtgy2"]
+
+[sub_resource type="Gradient" id="Gradient_8uqyt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_78j62"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3aetk"]
+seamless = true
+color_ramp = SubResource("Gradient_8uqyt")
+noise = SubResource("FastNoiseLite_78j62")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hre21"]
+render_priority = 0
+shader = ExtResource("1_cbtxm")
+shader_parameter/ground_spread = 200.0
+shader_parameter/ground_amplitude = 0.266
+shader_parameter/old_grass_height = 1.1
+shader_parameter/max_height = 1.5
+shader_parameter/min_height = 0.3
+shader_parameter/model_height = 0.811296
+shader_parameter/ao_color = Color(0.301961, 0.188235, 0.00784314, 1)
+shader_parameter/mid_color = Color(0.29, 0.56, 0.37, 1)
+shader_parameter/tip_color = Color(0.8, 0.78, 0.57, 1)
+shader_parameter/wind_direction = 0.0
+shader_parameter/noise = ExtResource("2_kf7co")
+shader_parameter/ground_height = SubResource("NoiseTexture2D_3aetk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_feo3g"]
+shader = ExtResource("1_bu3b1")
+shader_parameter/rows = 1003.0
+shader_parameter/spacing = 0.05
+shader_parameter/rotation = 0.125
+shader_parameter/rand_rot = 1.0
+shader_parameter/rand_pos = 0.1
+shader_parameter/noise_texture = ExtResource("2_kf7co")
+
+[node name="Grass" type="GPUParticles3D"]
+material_override = SubResource("ShaderMaterial_hre21")
+cast_shadow = 0
+amount = 1000000
+lifetime = 0.01
+explosiveness = 1.0
+interpolate = false
+fract_delta = false
+process_material = SubResource("ShaderMaterial_feo3g")
+draw_pass_1 = ExtResource("5_dtgy2")

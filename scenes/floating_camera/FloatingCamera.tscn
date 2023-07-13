@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nv4wbdotm3di"]
+
+[ext_resource type="Script" path="res://scenes/floating_camera/FloatingCamera.gd" id="1_mlion"]
+
+[node name="FloatingCamera" type="Camera3D"]
+current = true
+script = ExtResource("1_mlion")

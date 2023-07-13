@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://0685kiut631k"]
+
+[ext_resource type="PackedScene" uid="uid://nv4wbdotm3di" path="res://scenes/floating_camera/FloatingCamera.tscn" id="1_i2xsd"]
+[ext_resource type="PackedScene" uid="uid://b8oti3v6h7ons" path="res://scenes/grass/Grass.tscn" id="2_g0gaf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bkkg4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8phgk"]
+diffuse_mode = 1
+specular_mode = 2
+albedo_color = Color(0.0901961, 0.0235294, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ifk3"]
+material = SubResource("StandardMaterial3D_8phgk")
+size = Vector2(10000, 10000)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xe455"]
+sky_top_color = Color(0.196078, 0.415686, 0.6, 1)
+sky_horizon_color = Color(0.313726, 0.662745, 0.576471, 1)
+ground_bottom_color = Color(0.313726, 0.662745, 0.576471, 1)
+ground_horizon_color = Color(0.313726, 0.662745, 0.576471, 1)
+
+[sub_resource type="Sky" id="Sky_wbm0a"]
+sky_material = SubResource("ProceduralSkyMaterial_xe455")
+
+[sub_resource type="Environment" id="Environment_g621m"]
+background_mode = 2
+sky = SubResource("Sky_wbm0a")
+ambient_light_source = 3
+ambient_light_color = Color(0.478431, 0.333333, 0.219608, 1)
+ambient_light_sky_contribution = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.482353, 0.721569, 0.72549, 1)
+fog_density = 0.0049
+fog_sky_affect = 0.029
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p5vvq"]
+top_radius = 0.995
+bottom_radius = 1.609
+height = 8.535
+
+[node name="root" type="Node3D"]
+
+[node name="FloatingCamera" parent="." instance=ExtResource("1_i2xsd")]
+transform = Transform3D(-0.70834, 0.0955781, 0.699371, 0, 0.99079, -0.135404, -0.705872, -0.0959123, -0.701816, -0.0305646, 0.950045, 0.0306715)
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="floor"]
+shape = SubResource("WorldBoundaryShape3D_bkkg4")
+
+[node name="mesh" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("PlaneMesh_1ifk3")
+skeleton = NodePath("../..")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999465, -0.00514632, -0.0323045, 0.0189395, 0.896227, 0.443192, 0.0266713, -0.443567, 0.895845, 0, 9, 0)
+shadow_enabled = true
+
+[node name="environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g621m")
+
+[node name="Grass" parent="." instance=ExtResource("2_g0gaf")]
+speed_scale = 64.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17168, 4.09524, 9.28569)
+mesh = SubResource("CylinderMesh_p5vvq")
