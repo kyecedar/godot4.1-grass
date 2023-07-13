@@ -4,7 +4,7 @@ Using GPUParticles3D to create a grass field. No frustum magic yet.
 
 **`You can use all code and assets in this project for free. Create amazing things!`**
 
-Extra Info, each blade of grass is `0.811296m tall and have 3 verts`. I'd `make it exactly 1m next time` so that it's easier to work with.
+Extra Info, each blade of grass is **0.811296m tall and have 3 verts**. I'd **make it exactly 1m next time** so that it's easier to work with.
 
 
 *Sources*:  
