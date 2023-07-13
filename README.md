@@ -12,9 +12,11 @@ Extra Info, each blade of grass is `0.811296m tall and have 3 verts`. I'd `make 
 [Acerola - How Do Games Render So Much Grass?](https://www.youtube.com/watch?v=Y0Ko0kvwfgA)  
 [Acerola - Modern Foliage Rendering](https://www.youtube.com/watch?v=jw00MbIJcrk)  
 [Acerola - What I Did To Optimize My Game's Grass](https://www.youtube.com/watch?v=PNvlqsXdQic)  
-[Bramwell - Stylized Grass in Godot 4](https://www.youtube.com/watch?v=vp51qoyv08g)
+[Bramwell - Stylized Grass in Godot 4](https://www.youtube.com/watch?v=vp51qoyv08g)  
 
-["How do i set inside faces of objects visible in shaders?"](https://godotforums.org/d/25965-how-do-i-set-inside-faces-of-objects-visible-in-shaders)  
+[GlyphTheWolf and Megalomaniak in > "How do i set inside faces of objects visible in shaders?"](https://godotforums.org/d/25965-how-do-i-set-inside-faces-of-objects-visible-in-shaders)  
+[DavidEichmann in > "World_vertex_coords flag required in canvas_item shaders"](https://github.com/godotengine/godot/issues/19800#issuecomment-1312531417)  
+[kleonc in > "WORLD_MATRIX renamed or removed?"](https://www.reddit.com/r/godot/comments/v59x0a/comment/ib8m9bz)  
 
 
 
