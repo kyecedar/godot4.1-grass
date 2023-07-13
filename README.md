@@ -1,14 +1,16 @@
 # Godot 4.1 Grass Test
 
-Using GPUParticles3D to create a grass field. No frustum magic yet.
+Using GPUParticles3D to create a grass field. No frustum magic yet.  
 
-**`You can use all code and assets in this project for free. Create amazing things!`**
+If you're gonna add onto this, each blade of grass is **0.811296m tall and have 3 verts**. I'd **make it exactly 1m next time** so that it's easier to work with.  
 
-Extra Info, each blade of grass is **0.811296m tall and have 3 verts**. I'd **make it exactly 1m next time** so that it's easier to work with.
+**`You can use all code and assets in this project for free. Create amazing things!`**  
+*Please remember, I'm just one person and I can't promise to keep updating this. If you contact me, I might try and make an update - but I linked some starting sources so you can add onto this project in any way you'd like!*  
 
 
 *Sources*:  
 [devmar - Godot 3/4 Particle Shader to Make 'Wandering' Grass](https://www.youtube.com/watch?v=YCBt-55PaOc)  
+[Watt Interactive - A (Not So) Brief Overview of 3D Particles in Godot 4](https://www.youtube.com/watch?v=QhntE6vOLXY)  
 [Acerola - How Do Games Render So Much Grass?](https://www.youtube.com/watch?v=Y0Ko0kvwfgA)  
 [Acerola - Modern Foliage Rendering](https://www.youtube.com/watch?v=jw00MbIJcrk)  
 [Acerola - What I Did To Optimize My Game's Grass](https://www.youtube.com/watch?v=PNvlqsXdQic)  
